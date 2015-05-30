@@ -61,7 +61,7 @@ class UEditorServiceProvider extends LaravelServiceProvider {
 
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'ueditor');
 
-        $this->publishes([__DIR__.'/../lang' => base_path('/resources/lang/')]);
+        $this->publishes([__DIR__.'/../lang' => base_path('/resources/lang/')],'lang');
     }
 
     private function handleViews() {
@@ -84,13 +84,23 @@ class UEditorServiceProvider extends LaravelServiceProvider {
     private function handleRecources(){
 
         $this->publishes([
-            __DIR__ . '/../resources/public/dialogs/' => public_path('vendor/ueditor/dialogs','dialog'),
-            __DIR__ . '/../resources/public/lang/' => public_path('vendor/ueditor/lang','lang'),
-            __DIR__ . '/../resources/public/themes/' => public_path('vendor/ueditor/themes','theme'),
-            __DIR__ . '/../resources/public/third-party/' => public_path('vendor/ueditor/third-party','third-party'),
-            __DIR__ . '/../resources/public/ueditor.all.min.js' => public_path('vendor/ueditor/','js'),
-            __DIR__ . '/../resources/public/ueditor.config.js' => public_path('vendor/ueditor/','js'),
-            __DIR__ . '/../resources/public/ueditor.parse.min.js' => public_path('vendor/ueditor/','js'),
+            __DIR__ . '/../resources/public/dialogs/' => public_path('vendor/ueditor/dialogs'),'dialog'
+        ]);
+        $this->publishes([
+            __DIR__ . '/../resources/public/lang/' => public_path('vendor/ueditor/lang'),'lang'
+        ]);
+        $this->publishes([
+            __DIR__ . '/../resources/public/themes/' => public_path('vendor/ueditor/themes'),'theme'
+        ]);
+        $this->publishes([
+            __DIR__ . '/../resources/public/third-party/' => public_path('vendor/ueditor/third-party'),'third-party'
+        ]);
+        $this->publishes([
+            __DIR__ . '/../resources/public/ueditor.all.js' => public_path('vendor/ueditor/'),
+            __DIR__ . '/../resources/public/ueditor.all.min.js' => public_path('vendor/ueditor/'),
+            __DIR__ . '/../resources/public/ueditor.config.js' => public_path('vendor/ueditor/'),
+            __DIR__ . '/../resources/public/ueditor.parse.js' => public_path('vendor/ueditor/'),
+            __DIR__ . '/../resources/public/ueditor.parse.min.js' => public_path('vendor/ueditor/'),'js'
         ]);
     }
 }
