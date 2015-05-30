@@ -1,13 +1,13 @@
 {
   "name": "vendor/package",
-  "description": "",
-  "keywords": [],
-  "homepage": "",
+  "description": "A laravel package of ueditor,which is baidu's open source WYSIWYG editor",
+  "keywords": ["laravel","editor","ueditor","WYSIWYG"],
+  "homepage": "https://www.bigfeettrip.com",
   "license": "MIT",
   "authors": [
     {
-      "name": "",
-      "email": ""
+      "name": "ender",
+      "email": "ender0421@gmail.com"
     }
   ],
   "require": {
@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Vendor\\Package\\": "src/"
+      "Ender\\Ueditor\\": "src/"
     }
   },
   "minimum-stability": "dev"
