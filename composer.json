@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Ender\\Ueditor\\": "src/"
+      "Ender\\UEditor\\": "src/"
     }
   },
   "minimum-stability": "dev"
