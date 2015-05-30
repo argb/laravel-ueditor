@@ -1,5 +1,5 @@
 {
-  "name": "vendor/package",
+  "name": "ender/laravel-ueditor",
   "description": "A laravel package of ueditor,which is baidu's open source WYSIWYG editor",
   "keywords": ["laravel","editor","ueditor","WYSIWYG"],
   "homepage": "https://www.bigfeettrip.com",
