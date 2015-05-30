@@ -22,10 +22,10 @@ class ListsQiniu
     {
         $size = $this->request->get('size', $this->listSize);
         $start = $this->request->get('start', '');
-        $auth = new Auth(config('UEditorUpload.core.qiniu.accessKey'), config('UEditorUpload.core.qiniu.secretKey'));
+        $auth = new Auth(config('ueditor.core.qiniu.accessKey'), config('ueditor.core.qiniu.secretKey'));
 
         $bucketManager = new BucketManager($auth);
-        list($items, $marker, $error) = $bucketManager->listFiles(config('UEditorUpload.core.qiniu.bucket'), $this->path, $start, $size);
+        list($items, $marker, $error) = $bucketManager->listFiles(config('ueditor.core.qiniu.bucket'), $this->path, $start, $size);
 
         if ($error) {
             return [
@@ -48,7 +48,7 @@ class ListsQiniu
         foreach ($items as  $v) {
             if (preg_match("/\.(" . $this->allowFiles . ")$/i", $v['key'])) {
                 $files[] = array(
-                    'url' =>rtrim(config('UEditorUpload.core.qiniu.url'),'/').'/'.$v['key'],
+                    'url' =>rtrim(config('ueditor.core.qiniu.url'),'/').'/'.$v['key'],
                     'mtime' => $v['mimeType'],
                 );
             }

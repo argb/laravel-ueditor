@@ -32,15 +32,15 @@ trait UploadQiniu
     public function uploadQiniu($key, $content)
     {
         $upManager = new UploadManager();
-        $auth = new Auth(config('UEditorUpload.core.qiniu.accessKey'), config('UEditorUpload.core.qiniu.secretKey'));
-        $token = $auth->uploadToken(config('UEditorUpload.core.qiniu.bucket'));
+        $auth = new Auth(config('ueditor.core.qiniu.accessKey'), config('ueditor.core.qiniu.secretKey'));
+        $token = $auth->uploadToken(config('ueditor.core.qiniu.bucket'));
 
         list($ret, $error) = $upManager->put($token, $key, $content);
         if ($error) {
             $this->stateInfo= $error->message();
         } else {
             //change $this->fullName ,return the url
-            $url=rtrim(strtolower(config('UEditorUpload.core.qiniu.url')),'/');
+            $url=rtrim(strtolower(config('ueditor.core.qiniu.url')),'/');
             $fullName = ltrim($this->fullName, '/');
             $this->fullName=$url.'/'.$fullName;
             $this->stateInfo = $this->stateMap[0];

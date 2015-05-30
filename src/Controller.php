@@ -75,13 +75,13 @@ class Controller extends BaseController
             case 'listimage':
 
 
-                if (config('UEditorUpload.core.mode') == 'local') {
+                if (config('ueditor.core.mode') == 'local') {
                     $result = with(new Lists(
                         $config['imageManagerAllowFiles'],
                         $config['imageManagerListSize'],
                         $config['imageManagerListPath'],
                         $request))->getList();
-                } else if (config('UEditorUpload.core.mode') == 'qiniu') {
+                } else if (config('ueditor.core.mode') == 'qiniu') {
                     $result = with(new ListsQiniu(
                         $config['imageManagerAllowFiles'],
                         $config['imageManagerListSize'],
@@ -93,13 +93,13 @@ class Controller extends BaseController
                 break;
             /* 列出文件 */
             case 'listfile':
-                if (config('UEditorUpload.core.mode') == 'local') {
+                if (config('ueditor.core.mode') == 'local') {
                     $result = with(new Lists(
                         $config['fileManagerAllowFiles'],
                         $config['fileManagerListSize'],
                         $config['fileManagerListPath'],
                         $request))->getList();
-                }else if (config('UEditorUpload.core.mode') == 'qiniu') {
+                }else if (config('ueditor.core.mode') == 'qiniu') {
                     $result = with(new ListsQiniu(
                         $config['fileManagerAllowFiles'],
                         $config['fileManagerListSize'],

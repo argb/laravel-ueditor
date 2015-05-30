@@ -69,7 +69,7 @@ class UploadCatch  extends Upload{
         }
 
 
-        if(config('UEditorUpload.core.mode')=='local'){
+        if(config('ueditor.core.mode')=='local'){
             //创建目录失败
             if (!file_exists($dirname) && !mkdir($dirname, 0777, true)) {
                 $this->stateInfo = $this->getStateInfo("ERROR_CREATE_DIR");
@@ -87,7 +87,7 @@ class UploadCatch  extends Upload{
                 $this->stateInfo = $this->stateMap[0];
                 return true;
             }
-        }else if(config('UEditorUpload.core.mode')=='qiniu'){
+        }else if(config('ueditor.core.mode')=='qiniu'){
 
             return $this->uploadQiniu($this->filePath,$img);
 
