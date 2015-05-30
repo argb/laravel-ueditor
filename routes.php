@@ -1,7 +1,7 @@
-<?php namespace Ender\UEditor;
+<?php
 
 /**
  * Your package routes would go here
  */
 
-Route::any('/ueditor/server','Controller@server');
+Route::any('/ueditor/server','Ender\UEditor\Controller@server');
