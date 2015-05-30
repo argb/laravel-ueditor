@@ -86,21 +86,25 @@ class UEditorServiceProvider extends LaravelServiceProvider {
         $this->publishes([
             __DIR__ . '/../resources/public/dialogs/' => public_path('vendor/ueditor/dialogs')
         ],'dialog');
+
         $this->publishes([
             __DIR__ . '/../resources/public/lang/' => public_path('vendor/ueditor/lang')
         ],'lang');
+
         $this->publishes([
             __DIR__ . '/../resources/public/themes/' => public_path('vendor/ueditor/themes')
         ],'theme');
+
         $this->publishes([
             __DIR__ . '/../resources/public/third-party/' => public_path('vendor/ueditor/third-party')
         ],'third-party');
+
         $this->publishes([
-            __DIR__ . '/../resources/public/ueditor.all.js' => public_path('vendor/ueditor/'),
-            __DIR__ . '/../resources/public/ueditor.all.min.js' => public_path('vendor/ueditor/'),
-            __DIR__ . '/../resources/public/ueditor.config.js' => public_path('vendor/ueditor/'),
-            __DIR__ . '/../resources/public/ueditor.parse.js' => public_path('vendor/ueditor/'),
-            __DIR__ . '/../resources/public/ueditor.parse.min.js' => public_path('vendor/ueditor/')
+            __DIR__ . '/../resources/public/ueditor.all.js' => public_path('vendor/ueditor/ueditor.all.js'),
+            __DIR__ . '/../resources/public/ueditor.all.min.js' => public_path('vendor/ueditor/ueditor.all.min.js'),
+            __DIR__ . '/../resources/public/ueditor.config.js' => public_path('vendor/ueditor/ueditor.config.js'),
+            __DIR__ . '/../resources/public/ueditor.parse.js' => public_path('vendor/ueditor/ueditor.parse.js'),
+            __DIR__ . '/../resources/public/ueditor.parse.min.js' => public_path('vendor/ueditor/ueditor.parse.min.js')
         ],'js');
     }
 }
