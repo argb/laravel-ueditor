@@ -1,6 +1,6 @@
-# Baidu UEditor for Laravel
+# Baidu UEditor for Laravel 5
 
-A laravel package of UEditor,which is an open source WYSIWYG editor maintained by [Baidu FE team](http://ueditor.baidu.com/website/index.html)
+A laravel 5 package of UEditor,which is an open source WYSIWYG editor maintained by [Baidu FE team](http://ueditor.baidu.com/website/index.html)
 
 这个package主要是为了方便自己的项目，本打算找个现成的，参考了现有的两个package，但是考虑到能否有长期的更新维护和灵活性的问题，
 再考虑到自己也曾是Baidu FE UEditor Team的一员(只待了3周就调走了:D)，最终还是决定自己打包一个。
