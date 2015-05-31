@@ -30,8 +30,11 @@ A laravel 5 package of UEditor,which is an open source WYSIWYG editor maintained
 Via Composer
 
 ``` bash
-$ composer require "ender/laravel-ueditor:0.8.1"
+$ composer require "ender/laravel-ueditor:0.8.*"
 ```
+
+有时候可能忘了修改这里的版本号，尽量安装最新稳定版。
+
 
 ## Usage
 
