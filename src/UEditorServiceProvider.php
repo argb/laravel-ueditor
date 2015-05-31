@@ -27,7 +27,7 @@ class UEditorServiceProvider extends LaravelServiceProvider {
 
         //根据系统配置 取得 local
         $locale = config('app.locale');
-        $ueditor_locale=config('ueditor.langMap'.$locale);
+        $ueditor_locale=config('ueditor.langMap.'.$locale);
         $file = public_path()."/vendor/ueditor/lang/$ueditor_locale/$ueditor_locale.js";
 
         if (!\File::exists($file)) {
