@@ -2,6 +2,21 @@
 
 A laravel package of UEditor,which is an open source WYSIWYG editor maintained by [Baidu FE team](http://ueditor.baidu.com/website/index.html)
 
+这个package主要是为了方便自己的项目，本打算找个现成的，参考了现有的两个package，但是考虑到能否有长期的更新维护和灵活性的问题，
+再考虑到自己也曾是Baidu FE UEditor Team的一员(只待了3周就调走了:D)，最终还是决定自己打包一个。
+
+### 参考列表
+
+- [stevenyangecho/laravel-u-editor](https://github.com/stevenyangecho/laravel-u-editor)
+- [zhuzhichao/Ueditor](https://github.com/zhuzhichao/Ueditor)
+
+主要参考了stevenyangecho/laravel-u-editor，能用的基本上都是直接拿过来用的，部分按自己的喜好调整了下，里面有用到七牛存储的代码，虽然目前项目中没有用到，
+暂时也保留了下来，如果以后用到可以省点事。
+另外这个貌似图片上传有问题，应该就是路由的问题，下面会提到。
+
+对以上作者表示感谢。
+
+
 ## Install
 
 Via Composer
@@ -28,16 +43,16 @@ php artisan vendor:publish --provider='Ender\UEditor\UEditorServiceProvider' --t
 
 如果有了较大的改动需要强制覆盖已有的内容可以加上--force 参数
 
+```php
+php artisan vendor:publish --provider='Ender\UEditor\UEditorServiceProvider' --force
+```
+
 所有的资源文件会发布到/public/vendor/ueditor 目录下
 
 php部分增加了lang的配置，会发布到默认的lang目录下，目前包括en zh_Cn zh_TW
 
 基本配置文件包括一个php的配置文件ueditor.php,会发布到laravel的默认config目录中
 前端的config.js会跟其他前端资源文件一样发布到/public/vendor/ueditor目录下
-
-```php
-php artisan vendor:publish --provider='Ender\UEditor\UEditorServiceProvider' --force
-```
 
 前端部分的使用可以参考UEditor[官方文档](http://fex.baidu.com/ueditor/)，这里不再赘述
 
@@ -90,7 +105,7 @@ serverUrl: URL + "xxx"
 serverUrl: "ueditor/server"
 ```
 
-区别在于去掉了前面的URL,否则route会多长资源文件的路径，无法完成图片等的上传。
+区别在于去掉了前面的URL,否则route会多出资源文件的路径，无法完成图片等的上传。
 
 
 图片、视频等的默认上传目录为是在ueditor.php的配置文件中设定的，以图片为例具体配置项是
@@ -105,9 +120,11 @@ serverUrl: "ueditor/server"
 
 ueditor.php配置文件中的可以指定middleware来进行认证授权等的检查，默认是auth,大部分情况下是需要登陆才能上传文件的。
 
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
 
 ## Testing
 
@@ -119,9 +136,11 @@ $
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
+
 ## Security
 
 If you discover any security related issues, please email :author_email instead of using the issue tracker.
+
 
 ## Credits
 
