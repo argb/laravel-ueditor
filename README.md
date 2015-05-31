@@ -3,7 +3,15 @@
 A laravel 5 package of UEditor,which is an open source WYSIWYG editor maintained by [Baidu FE team](http://ueditor.baidu.com/website/index.html)
 
 这个package主要是为了方便自己的项目，本打算找个现成的，参考了现有的两个package，但是考虑到能否有长期的更新维护和灵活性的问题，
-再考虑到自己也曾是Baidu FE UEditor Team的一员(只待了3周就调走了:D)，最终还是决定自己打包一个。
+再考虑到自己也曾是Baidu FE UEditor Team的一员(只待了3周就被调走:D)，最终还是决定自己打包一个。
+
+### 示例演示
+
+先上个例子再说，[ueditor for laravel5](https://www.bigfeettrip.com/demo/ueditor)
+
+请不要乱传图片，我服务器很脆弱的，谢了啊。
+
+顺便打个广告，喜欢旅游的可以聊聊，搞搞基什么的，有兴趣也可以参与到项目中来，交流下看法，思路也可以的。
 
 ### 参考列表
 
@@ -27,10 +35,22 @@ $ composer require "ender/laravel-ueditor: dev-master"
 
 ## Usage
 
-安装完成后在你的项目根目录执行
+首先在laravel 配置文件app.php中增加对应的provider和alias
+
+```php
+'Ender\UEditor\UEditorServiceProvider'
+```
+
+```php
+'UEditor'   => 'Ender\UEditor\UEditor'
+```
+
+然后在你的项目根目录执行
+
 ``` 
 php artisan vendor:publish --provider='Ender\UEditor\UEditorServiceProvider'
 ```
+
 UEditor所需要的资源文件、配置文件会分别发布到对应目录，之后你可以根据需要修改这些文件，当然也可以使用默认配置
 
 你也可以选择通过tag参数指明只发布特定内容，如
