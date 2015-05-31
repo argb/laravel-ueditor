@@ -7,9 +7,11 @@ A laravel 5 package of UEditor,which is an open source WYSIWYG editor maintained
 
 ### 示例演示
 
-先上个例子再说，[ueditor for laravel5](https://www.bigfeettrip.com/demo/ueditor)
+先上个demo再说，[ueditor for laravel5](https://www.bigfeettrip.com/demo/ueditor)
 
 请不要乱传图片，我服务器很脆弱的，谢了啊。
+
+由于开了登陆检查，所以未登录的话上传图片功能还是不可用的，登陆之后就正常了。
 
 顺便打个广告，喜欢旅游的可以聊聊，搞搞基什么的，有兴趣也可以参与到项目中来，交流下看法，思路也可以的。
 
