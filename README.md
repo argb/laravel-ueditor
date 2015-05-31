@@ -30,7 +30,7 @@ A laravel 5 package of UEditor,which is an open source WYSIWYG editor maintained
 Via Composer
 
 ``` bash
-$ composer require "ender/laravel-ueditor: dev-master"
+$ composer require "ender/laravel-ueditor:0.8.1"
 ```
 
 ## Usage

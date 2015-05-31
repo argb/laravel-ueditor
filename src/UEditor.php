@@ -15,7 +15,9 @@ class UEditor {
 
     }
 
-    public static function content($content ='' , $config = ['id'=>'ueditor','name'=>'ueditor']) {
+    public static function content($content ='' , $config = []) {
+        $defaultConfig=['id'=>'ueditor','name'=>'ueditor','class'=>'ueditor'];
+        $config=array_merge($defaultConfig,$config);
         $attr = self::makeConfig2String($config);
         echo "<script type='text/plain' {$attr}>{$content}</script>";
     }
