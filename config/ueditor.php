@@ -6,6 +6,17 @@
 
 /* 前后端通信相关的配置,注释只允许使用多行方式 */
 return [
+    'langMap'=>[
+        'en' => 'en',
+        'zh_CN' =>'zh-cn'
+    ],
+    /**
+     * Default route for uploading,respond to default controller UEditorController,
+     * and respond to front-end config.js's serverUrl config,both of two must have same value
+     * you change change both of them together and write your own controller to process uploading
+     */
+
+    'upload_route'=>'/ueditor/server',
     /*
     |--------------------------------------------------------------------------
     | 新增配置,route

@@ -16,7 +16,6 @@ class UploadFile  extends Upload{
     public function doUpload()
     {
 
-
         $file = $this->request->file($this->fileField);
         if (empty($file)) {
             $this->stateInfo = $this->getStateInfo("ERROR_FILE_NOT_FOUND");

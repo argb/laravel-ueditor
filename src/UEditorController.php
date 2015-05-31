@@ -7,7 +7,7 @@ use Ender\UEditor\Uploader\UploadScrawl;
 use Ender\UEditor\Uploader\UploadFile;
 use Ender\UEditor\Uploader\UploadCatch;
 
-class Controller extends BaseController
+class UEditorController extends BaseController
 {
 
 
@@ -15,7 +15,6 @@ class Controller extends BaseController
     {
 
     }
-
 
     public function server(Request $request)
     {
