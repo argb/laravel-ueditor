@@ -34,8 +34,8 @@ class UEditorServiceProvider extends LaravelServiceProvider {
             //Default is zh-cn
             $file = public_path()."/vendor/ueditor/lang/zh-cn/zh-cn.js";
         }
-        view()::share('ueditor_locale', $ueditor_locale);
-        view()::share('ueditor_locale_file', $file);
+        view()->share('ueditor_locale', $ueditor_locale);
+        view()->share('ueditor_locale_file', $file);
     }
 
     /**
