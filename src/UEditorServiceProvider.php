@@ -28,11 +28,11 @@ class UEditorServiceProvider extends LaravelServiceProvider {
         //根据系统配置 取得 local
         $locale = config('app.locale');
         $ueditor_locale=config('ueditor.langMap.'.$locale);
-        $file = public_path()."/vendor/ueditor/lang/$ueditor_locale/$ueditor_locale.js";
+        $file = public_path()."/ueditor/lang/$ueditor_locale/$ueditor_locale.js";
 
         if (!\File::exists($file)) {
             //Default is zh-cn
-            $file = public_path()."/vendor/ueditor/lang/zh-cn/zh-cn.js";
+            $file = public_path()."/ueditor/lang/zh-cn/zh-cn.js";
         }
         view()->share('ueditor_locale', $ueditor_locale);
         view()->share('ueditor_locale_file', $file);
@@ -79,7 +79,7 @@ class UEditorServiceProvider extends LaravelServiceProvider {
 
         $this->loadViewsFrom(__DIR__.'/../views','ueditor');
 
-        $this->publishes([__DIR__.'/../views' => base_path('resources/views/vendor/ueditor')],'view');
+        $this->publishes([__DIR__.'/../views' => base_path('resources/views/ueditor')],'view');
     }
 
     private function handleMigrations() {
@@ -95,27 +95,27 @@ class UEditorServiceProvider extends LaravelServiceProvider {
     private function handleRecources(){
 
         $this->publishes([
-            __DIR__ . '/../resources/public/dialogs/' => public_path('vendor/ueditor/dialogs')
+            __DIR__ . '/../resources/public/dialogs/' => public_path('ueditor/dialogs')
         ],'dialog');
 
         $this->publishes([
-            __DIR__ . '/../resources/public/lang/' => public_path('vendor/ueditor/lang')
+            __DIR__ . '/../resources/public/lang/' => public_path('ueditor/lang')
         ],'lang');
 
         $this->publishes([
-            __DIR__ . '/../resources/public/themes/' => public_path('vendor/ueditor/themes')
+            __DIR__ . '/../resources/public/themes/' => public_path('ueditor/themes')
         ],'theme');
 
         $this->publishes([
-            __DIR__ . '/../resources/public/third-party/' => public_path('vendor/ueditor/third-party')
+            __DIR__ . '/../resources/public/third-party/' => public_path('ueditor/third-party')
         ],'third-party');
 
         $this->publishes([
-            __DIR__ . '/../resources/public/ueditor.all.js' => public_path('vendor/ueditor/ueditor.all.js'),
-            __DIR__ . '/../resources/public/ueditor.all.min.js' => public_path('vendor/ueditor/ueditor.all.min.js'),
-            __DIR__ . '/../resources/public/ueditor.config.js' => public_path('vendor/ueditor/ueditor.config.js'),
-            __DIR__ . '/../resources/public/ueditor.parse.js' => public_path('vendor/ueditor/ueditor.parse.js'),
-            __DIR__ . '/../resources/public/ueditor.parse.min.js' => public_path('vendor/ueditor/ueditor.parse.min.js')
+            __DIR__ . '/../resources/public/ueditor.all.js' => public_path('ueditor/ueditor.all.js'),
+            __DIR__ . '/../resources/public/ueditor.all.min.js' => public_path('ueditor/ueditor.all.min.js'),
+            __DIR__ . '/../resources/public/ueditor.config.js' => public_path('ueditor/ueditor.config.js'),
+            __DIR__ . '/../resources/public/ueditor.parse.js' => public_path('ueditor/ueditor.parse.js'),
+            __DIR__ . '/../resources/public/ueditor.parse.min.js' => public_path('ueditor/ueditor.parse.min.js')
         ],'js');
     }
 }

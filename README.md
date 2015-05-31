@@ -67,12 +67,12 @@ php artisan vendor:publish --provider='Ender\UEditor\UEditorServiceProvider' --t
 php artisan vendor:publish --provider='Ender\UEditor\UEditorServiceProvider' --force
 ```
 
-所有的资源文件会发布到/public/vendor/ueditor 目录下
+所有的资源文件会发布到/public/ueditor 目录下,由于文件量比较大，如果不希望加入git，可以在.gitignore里面加一行 /public/ueditor
 
 php部分增加了lang的配置，会发布到默认的lang目录下，目前包括en zh_Cn zh_TW
 
 基本配置文件包括一个php的配置文件ueditor.php,会发布到laravel的默认config目录中
-前端的config.js会跟其他前端资源文件一样发布到/public/vendor/ueditor目录下
+前端的config.js会跟其他前端资源文件一样发布到/public/ueditor目录下
 
 前端部分的使用可以参考UEditor[官方文档](http://fex.baidu.com/ueditor/)，这里不再赘述
 
@@ -122,11 +122,11 @@ serverUrl: URL + "xxx"
 这里改成了
 
 ```
-serverUrl: "ueditor/server"
+serverUrl: origin+"ueditor/server"
 ```
 
-区别在于去掉了前面的URL,否则route会多出资源文件的路径，无法完成图片等的上传。
-
+区别在于去掉了前面的URL变量,换成了origin,加了 getOrigin 这个函数,否则图片上传时向server发出的请求会多出当前页面的path部分，
+导致route不对，无法完成图片等的上传。这样处理之后就可以基于域名自由定义route了。
 
 图片、视频等的默认上传目录为是在ueditor.php的配置文件中设定的，以图片为例具体配置项是
 

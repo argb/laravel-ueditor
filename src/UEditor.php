@@ -38,7 +38,7 @@ class UEditor {
      *	编辑器的CSS资源
      */
     public static function css() {
-        echo '<link href="'.asset('/vendor/ueditor/themes/default/css/ueditor.min.css').'" type="text/css" rel="stylesheet">'.PHP_EOL;
+        echo '<link href="'.asset('/ueditor/themes/default/css/ueditor.min.css').'" type="text/css" rel="stylesheet">'.PHP_EOL;
     }
     /**
      *	编辑器的JS资源
@@ -46,9 +46,9 @@ class UEditor {
     public static function js() {
         $locale=config('app.locale');
         $ueditor_locale=config('ueditor.langMap.'.$locale);
-        echo '<script type="text/javascript" charset="utf-8" src="'.asset('/vendor/ueditor/ueditor.config.js').'"></script>'.PHP_EOL;
-        echo '<script type="text/javascript" charset="utf-8" src="'.asset('/vendor/ueditor/ueditor.all.min.js').'"></script>'.PHP_EOL;
-        echo '<script type="text/javascript" src="'.asset('/vendor/ueditor/lang/'.$ueditor_locale.'/'.$ueditor_locale.'.js').'"></script>'.PHP_EOL;
+        echo '<script type="text/javascript" charset="utf-8" src="'.asset('/ueditor/ueditor.config.js').'"></script>'.PHP_EOL;
+        echo '<script type="text/javascript" charset="utf-8" src="'.asset('/ueditor/ueditor.all.min.js').'"></script>'.PHP_EOL;
+        echo '<script type="text/javascript" src="'.asset('/ueditor/lang/'.$ueditor_locale.'/'.$ueditor_locale.'.js').'"></script>'.PHP_EOL;
     }
 
 }
