@@ -18,7 +18,10 @@ class UEditorController extends BaseController
 
     public function server(Request $request)
     {
-        $config = config('ueditor.upload');
+        $routesMap=config('ueditor.upload_routes_config_map');
+        $route=$request->path();
+        $configKey=$routesMap[$route];
+        $config=config('ueditor.'.$configKey);
 
         $action = $request->get('action');
 

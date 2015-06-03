@@ -105,7 +105,15 @@ php部分增加了lang的配置，会发布到默认的lang目录下，目前包
 
 ```js
 <script type="text/javascript">
+    
     var ue = UE.getEditor('ueditor'); //用辅助方法生成的话默认id是ueditor
+    
+    /* 自定义路由 */
+    /*
+    var serverUrl=UE.getOrigin()+'/ueditor/test'; //你的自定义上传路由
+    var ue = UE.getEditor('ueditor',{'serverUrl':serverUrl}); //如果不使用默认路由，就需要在初始化就设定这个值
+    */
+    
     ue.ready(function() {
         ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
     });
@@ -145,6 +153,19 @@ serverUrl: origin+"ueditor/server"
 
 ueditor.php配置文件中的可以指定middleware来进行认证授权等的检查，默认是auth,大部分情况下是需要登陆才能上传文件的。
 
+### 多编辑器实例与多上传路径
+
+很多时候多个功能都需要用到编辑器，又要求不同的编辑器实例把图片等上传到不同的目录下，为了满足这种需要，config.php中增加了upload_routes_config_map节点，
+用来设定不同的上传路由与不同的上传配置节点的对应关系。
+
+每个路由可以有自己的配置，也可以多个路由共享一个配置节点，配置节点数量可根据需要自行增加上传路由的设定由config.js的serverUrl决定，有个默认值，
+如果要使用不同的上传路由可以在编辑器初始化时设定,之后把自定义的route加入到这里，并制定对应的配置节点，如此便可以方便的支持不同的编辑器实例上传到不同的目录。
+
+如何指定自定义路由？
+```javascript
+var serverUrl=UE.getOrigin()+'/ueditor/test'; //你的自定义上传路由
+var ue = UE.getEditor('ueditor',{'serverUrl':serverUrl}); //如果不使用默认路由，就需要在初始化就设定这个值
+```
 
 ## Change log
 
