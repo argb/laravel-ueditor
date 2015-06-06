@@ -167,6 +167,11 @@ var serverUrl=UE.getOrigin()+'/ueditor/test'; //你的自定义上传路由
 var ue = UE.getEditor('ueditor',{'serverUrl':serverUrl}); //如果不使用默认路由，就需要在初始化就设定这个值
 ```
 
+### 存储图片名称，路径，用户等信息到数据库
+```php
+'storage' => true,
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
