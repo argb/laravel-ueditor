@@ -1,6 +1,10 @@
 <?php namespace Ender\UEditor\Uploader;
 
+use App\Events\UEditorUploadStart;
+use App\Events\UEditorUploadSuccess;
+use App\Models\UEditorMedia;
 use Ender\UEditor\Uploader\Upload;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  *
@@ -26,6 +30,8 @@ class UploadFile  extends Upload{
             return false;
 
         }
+
+        //event(new UEditorUploadStart($file));
 
         $this->file = $file;
 
@@ -58,6 +64,21 @@ class UploadFile  extends Upload{
                 $this->file->move(dirname($this->filePath), $this->fileName);
 
                 $this->stateInfo = $this->stateMap[0];
+
+                //dd($this->file);
+                //event(new UEditorUploadSuccess($this->file));
+                $config=$this->config;
+                //var_export($config);die;
+                if($config['storage']==true){
+                    $data=[];
+                    $data['route']=\Request::path();
+                    $data['user_id']=\Auth::id();
+                    $data['media_type']=$config['media_type'];
+                    $data['media_name']=$this->fileName;
+                    //$data['media_path']=$this->filePath; //most time it's not necessary
+                    UEditorMedia::create($data);
+                }
+
 
             } catch (FileException $exception) {
                 $this->stateInfo = $this->getStateInfo("ERROR_WRITE_CONTENT");

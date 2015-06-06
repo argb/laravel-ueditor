@@ -37,6 +37,9 @@ class UEditorController extends BaseController
                     "maxSize" => $config['imageMaxSize'],
                     "allowFiles" => $config['imageAllowFiles'],
                     'fieldName' => $config['imageFieldName'],
+                    'route' => $route,
+                    'storage' => $config['storage'],
+                    'media_type' => 'image'
                 );
                 $result = with(new UploadFile($upConfig, $request))->upload();
                 break;

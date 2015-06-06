@@ -20,6 +20,7 @@ class Lists
         /* 获取文件列表 */
         $path = public_path()  .'/'. ltrim($this->path,'/');
 
+
         $files = $this->getfiles($path, $this->allowFiles);
         if (!count($files)) {
             return [
